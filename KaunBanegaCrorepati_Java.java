@@ -1,6 +1,6 @@
 /*
 	
-	Object Oriented Programming 
+	Object Oriented Programming :
 
 	Kaun Banega Crorepati is a popular reality show on television.
 	The host asks questions and the participant answers them to win prize money.
