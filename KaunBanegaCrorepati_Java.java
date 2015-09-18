@@ -81,6 +81,62 @@
 
 	All the best!
 */
+class Participant{
+	private String name, phone;
+	private int age, currentLevel;
+	private int[] prizeMoney={0,1000,2000,3000,5000,10000,20000,40000,80000,160000,320000,640000,1250000,2500000,5000000,10000000};
+	public Participant(){
+		this.currentLevel=1;
+	}
+	public Participant(String name,int age, String phone){
+		this.name=name;
+		this.age=age;
+		this.phone=phone;
+		currentLevel=1;
+	}
+	
+	public String getName(){
+		return name;
+		
+	}
+	public int getAge(){
+		return age;
+	}
+	public String getPhone(){
+		return phone;
+	}
+	public int getCurrentLevel(){
+		return this.currentLevel;
+	}
+
+}
+
+class Question {
+	protected String question,correctAnswer;
+	int level;
+
+	public Question(String question,String correctAnswer,int level){
+		this.question=question;
+		this.correctAnswer=correctAnswer;
+		this.level=level;
+	}
+	public String getQuestion()
+	{
+		return question;
+	}
+	
+	public String getCorrectAnswer(){
+		return correctAnswer;
+		
+	}
+
+	public int getLevel() {
+		// TODO Auto-generated method stub
+		return level;
+	}
+}
+
+
 
 interface Quiz{
 	
@@ -112,11 +168,11 @@ interface Quiz{
 
 }
 
-public class KaunBanegaCrorepati implements Quiz{
+public class KaunBanegaCrorepati_Java implements Quiz{
 
 	public static void main(String[] args){
 
-		Quiz kbc = new KaunBanegaCrorepati();
+		KaunBanegaCrorepati_Java kbc = new KaunBanegaCrorepati_Java();
 
 		for(int i = 0; i < 15; i++)
 			// create an object of question with 3 parameters
