@@ -1,3 +1,4 @@
+import java.util.*;
 /*
 	
 	Object Oriented Programming :
@@ -108,6 +109,12 @@ class Participant{
 	public int getCurrentLevel(){
 		return this.currentLevel;
 	}
+	public int getprizeMoney(){
+		return this.prizeMoney[getCurrentLevel()-1];
+	}
+	public void incrementLevel() {
+		currentLevel++;
+	}
 
 }
 
@@ -131,7 +138,6 @@ class Question {
 	}
 
 	public int getLevel() {
-		// TODO Auto-generated method stub
 		return level;
 	}
 }
@@ -169,43 +175,97 @@ interface Quiz{
 }
 
 public class KaunBanegaCrorepati_Java implements Quiz{
+Question qu[]=new Question[15];
+	Participant p;
+	public KaunBanegaCrorepati_Java() {
+		
+		p=new Participant();
+	}
+	public void addQuestion(Question ques) {
+		
+		qu[ques.getLevel()-1]=ques;
+	}
+	
+	public int getCurrentLevel() {
+		
+		return p.getCurrentLevel();
+	}
 
+	public Question getNextQuestion() {
+		return qu[p.getCurrentLevel()-1];
+		
+	}
+	
+	public int getPrizeMoney() {
+		
+		return p.getprizeMoney();
+	}
+	public boolean lockAnswer(Question q, String answer) {
+		
+		if(q.correctAnswer.equalsIgnoreCase(answer)){
+			
+			p.incrementLevel();
+			return true;
+		}
+		else
+			return false;
+	}
+	
+	public Participant registerParticipant(String name, int age, String phone) {
+		p=new Participant(name,age,phone);
+		return p;
+	}
 	public static void main(String[] args){
-
-		KaunBanegaCrorepati_Java kbc = new KaunBanegaCrorepati_Java();
-
-		for(int i = 0; i < 15; i++)
-			// create an object of question with 3 parameters
-			// question text that is displayed to the user
-			// question level which is from 1 to 15
-			// correct answer to the question
-			// the question data can be from a keyboard, file or even hard coded like below
-			kbc.addQuestion(new Question("Question text", i, "A"));
-
+		Participant p;
+		KaunBanegaCrorepati_Java kbcp = new KaunBanegaCrorepati_Java();
 		// register the participant
-		Participant p = kbc.registerParticipant("Praveen", 30, "9989968765");
+		p = kbcp.registerParticipant("Praveen", 30, "9989968765");
+	Scanner sc = new Scanner(System.in);
 
-		// get the first question
-		Question question = kbc.getNextQuestion();
-		while(question != null){
-			// display the question to the user
-			// there can be multiple ways of displaying the question
-			// you can do it anyway you want
-			System.out.println(question);
-
-			// take input from the user
-			Scanner s = new Scanner(System.in);
-			String input = s.next();
-			if(!input.equals("quit")){
-				if(kbc.lockAnswer(question, input)){
-					question = kbc.getNextQuestion();
-				}else{
-					question = null;
-				}
-			}
+		for (int i = 0; i < 15; i++) {
+			kbcp.addQuestion(new Question("Question" + (i + 1), "A", i + 1));
 		}
 
+		String choice;
+		int i = 0;
+		while (i < 15) {
 
+			Question q = kbcp.getNextQuestion();
+			System.out.println("You are at level " + p.getCurrentLevel());
+			System.out.println(q.question);
+			System.out.println("Please enter your answer A,B,C,D or quit.");
+			choice = sc.next();
+			if(choice.equals("quit")){
+				if (p.getprizeMoney() != 0)
+					System.out.println("You quit the Quiz. Congrats! you won "+ p.getprizeMoney() + " Rs/-");
+				else
+					System.out.println("You quit the Quiz. Sorry! you won 0 Rs/-.");
+
+			break;
+			} 
+			else if (kbcp.lockAnswer(q, choice)) {
+					System.out.println("Congrats! Your answer is correct. You have won "+ p.getprizeMoney()+" rupees");
+					
+				}
+
+				else {
+					if (p.getCurrentLevel() < 6) {
+						System.out.println("Sorry! your answer is wrong. Quiz is completed.  You won 0 Rs/-.");
+					} else if (p.getCurrentLevel() < 11) {
+						System.out.println("Sorry! your answer is wrong. Quiz is completed.  You won 10,000 Rs/-.");
+					} else
+						System.out.println("Sorry! your answer is wrong. Quiz is completed.  You won 3,20,000 Rs/-.");
+
+					break;
+
+				}
+			
+			i++;
+
+		}
+		if (i == 15)
+			System.out
+					.println("Quiz is completed. Congrats! you won 1,00,00,000  Rs/-");
 	}
 
 }
