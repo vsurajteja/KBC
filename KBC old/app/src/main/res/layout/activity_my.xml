@@ -1,0 +1,96 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="You Won: Rs.___________ "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:paddingLeft="16dp"
+        android:paddingRight="8dp"
+        android:paddingTop="2dp"
+        android:background="#ff4a1976"/>
+
+    <ImageView
+        android:src="@drawable/Kaun_Banega_Crorepati_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff9c6ed1"
+        android:scaleType="center"
+        android:layout_marginBottom="0dp" />
+
+    <TextView
+        android:text="Question:_______"
+        android:maxLines="2"
+        android:verticalScrollbarPosition="right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:textColor="@android:color/white"
+        android:textSize="32sp"
+
+        android:paddingLeft="16dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:background="#dd4a1976"/>
+    <TextView
+        android:text="Option A "
+        android:layout_weight="0.7"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:paddingRight="8dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="4dp"
+        android:background="#ff4a1976"/>
+    <TextView
+        android:text="Option B "
+        android:clickable="true"
+        android:layout_weight="0.7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:paddingLeft="16dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:background="#ff4a1976"/>
+    <TextView
+        android:text="Option C"
+        android:clickable="true"
+        android:layout_weight="0.7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:paddingLeft="16dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:background="#ff4a1976"/>
+    <TextView
+        android:text="Option D"
+        android:clickable="true"
+        android:layout_weight="0.7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:paddingLeft="16dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:background="#ff4a1976"
+
+         />
+
+
+</LinearLayout>
